@@ -1,19 +1,17 @@
 // src/components/FriendListItem.jsx
+import css from './FriendListItem.module.css';
+
 const FriendListItem = ({ avatar, name, isOnline }) => {
   return (
-    <div className="w-40 p-4 border rounded-xl text-center shadow-sm">
+    <div className={css.card}>
       <img
-        className="w-20 h-20 mx-auto mb-2"
+        className={css.avatar}
         src={avatar}
         alt="Avatar"
         width="48"
       />
-      <p className="text-lg font-semibold">{name}</p>
-      <p
-        className={`text-md font-medium ${
-          isOnline ? "text-green-600" : "text-red-600"
-        }`}
-      >
+      <p className={css.name}>{name}</p>
+      <p className={`${css.status} ${isOnline ? css.online : css.offline}`}>
         {isOnline ? "Online" : "Offline"}
       </p>
     </div>
